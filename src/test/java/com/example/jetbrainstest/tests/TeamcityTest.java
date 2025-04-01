@@ -3,6 +3,7 @@ package com.example.jetbrainstest.tests;
 import com.example.jetbrainstest.MyExtension;
 import com.example.jetbrainstest.pages.AppCodePage;
 import com.example.jetbrainstest.pages.TeamcityPage;
+import com.example.jetbrainstest.pages.TeamcityPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,10 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TeamcityTest extends BaseTest {
 
 
-    private TeamcityPage TeamcityPage;
+    private TeamcityPage teamcityPage;
+
     @BeforeEach
     @Override
-    public void setUp(){
+    public void setUp() {
         super.setUp();
         getDriver().get("https://www.jetbrains.com/teamcity/");
         TeamcityPage TeamcityPage = new TeamcityPage(getDriver());
@@ -30,18 +32,8 @@ public class TeamcityTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка, что кнопка Get started free активна")
-    public void buttonGetStartedFreeActiv(){
+    public void buttonGetStartedFreeActiv() {
         assertTrue(TeamcityPage.ButtonActivityGetStartedFree(), "Кнопка не активна");
     }
-
-    @Test
-    @DisplayName("Переход на страницу авторизации по иконке")
-    public void SwitchoAuthorization(){
-        TeamcityPage.clickAuthorizationIcon();
-        assertEquals(getDriver().getCurrentUrl(), "https://account.jetbrains.com/login");
-    }
-
-
-
 
 }

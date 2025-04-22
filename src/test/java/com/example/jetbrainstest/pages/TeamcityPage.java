@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,13 +17,13 @@ public class TeamcityPage {
     @FindBy(css = "[data-test=\"site-header-profile-action\"]")
     private WebElement AuthorizationIcon;
 
+    @Step ("Проверка видимости текста GetStartedFree")
     public boolean buttonActivityGetStartedFree() {
-        LOG.info("Проверка видимости текста GetStartedFree");
         return ButtonStartForFree.isEnabled();
     }
 
+    @Step ("Клик на иконку авторизации")
     public void clickAuthorizationIcon() {
-        LOG.info("Клик на иконку авторизации");
         AuthorizationIcon.click();
     }
 

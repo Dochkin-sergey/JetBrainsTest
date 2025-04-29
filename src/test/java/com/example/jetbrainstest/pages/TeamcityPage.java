@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,20 +11,20 @@ import org.slf4j.LoggerFactory;
 
 public class TeamcityPage {
     WebDriver driver;
-    private final Logger LOG = LoggerFactory.getLogger(TeamcityPage.class);
+    private  final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(TeamcityPage.class));
 
-    @FindBy(xpath = "//div//div/a/span[contains(text(), 'Get started free')]")
+    @FindBy(xpath = "/a/span[contains(text(), 'Get started free')]")
     private WebElement ButtonStartForFree;
     @FindBy(css = "[data-test=\"site-header-profile-action\"]")
     private WebElement AuthorizationIcon;
 
-    @Step ("Проверка видимости текста GetStartedFree")
     public boolean buttonActivityGetStartedFree() {
+        LOG.info("Проверка видимости текста GetStartedFree");
         return ButtonStartForFree.isEnabled();
     }
 
-    @Step ("Клик на иконку авторизации")
     public void clickAuthorizationIcon() {
+        LOG.info("Клик на иконку авторизации");
         AuthorizationIcon.click();
     }
 

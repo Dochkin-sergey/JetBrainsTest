@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.tests;
 
+import com.example.jetbrainstest.AllureAttachmentsManager;
 import com.example.jetbrainstest.MyExtension;
 import com.example.jetbrainstest.pages.TeamcityPage;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,6 +34,7 @@ public class TeamcityTest extends BaseTest {
     @DisplayName("Переход на страницу авторизации по иконке")
     public void switchoAuthorization() {
         teamcityPage.clickAuthorizationIcon();
+        LOG.infoWithScreenshot("Переход на страницу авторизации");
         assertEquals("https://account.jetbrains.com/login", getDriver().getCurrentUrl());
     }
 }
